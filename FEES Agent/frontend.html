@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Fees Verification Agent</title>
+  <style>
+    /* 🧭 Basic Page Styling */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f7fc;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* 🎓 Pay Fees Button */
+    #payBtn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #payBtn:hover {
+      background-color: #0056b3;
+    }
+
+    /* 🔽 Verification Bar (Hidden Initially) */
+    #verifyBar {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      animation: slideDown 0.4s ease forwards;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #28a745;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>College Fees Verification Agent</h1>
+
+  <button id="payBtn">💰 Pay Fees</button>
+
+  <div id="verifyBar">
+    <form action="/verify" method="POST">
+      <input type="text" name="enrollment" placeholder="Enter Enrollment Number" required>
+      <button type="submit">Verify</button>
+    </form>
+  </div>
+
+  <div class="footer">© 2025 Fees Verification System | Built by Jaspreet Singh</div>
+
+  <script>
+    const payBtn = document.getElementById('payBtn');
+    const verifyBar = document.getElementById('verifyBar');
+
+    payBtn.addEventListener('click', () => {
+      verifyBar.style.display = (verifyBar.style.display === 'none' || verifyBar.style.display === '') ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
